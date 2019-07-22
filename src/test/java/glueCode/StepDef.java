@@ -59,6 +59,15 @@ public class StepDef extends Utils {
    
 }
   
+    @When("^To initiate Rest service to get employee details with id as \"([^\"]*)\"$")
+    public void to_initiate_Rest_service_to_get_employee_details_with_id_as(String id) throws Throwable {
+    	request = RestAssured.given().pathParam("id", id).log().all();
+    	response = request.when().get("/{id}");
+    	JsonSchemaValidator.matchesJsonSchemaInClasspath("");
+        System.out.println("************The Response value as --" + response.prettyPrint());
+    }
+    
+    
     
     @Then("^Respose status code should be \"([^\"]*)\"$")
     public void respose_status_code_should_be(Integer arg1) throws Throwable {

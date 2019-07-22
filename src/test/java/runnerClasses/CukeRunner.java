@@ -7,11 +7,10 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		plugin = {"pretty"},
-//    plugin = {
-//        "html:target/cucumberHtmlReport",
-//        "json:target/cucumber-report.json"
-//    }, // Plugin to generate HTML report and json report
+		plugin = {"pretty",
+       "html:target/cucumberHtmlReport",
+       "json:target/cucumber-report.json"
+   }, 
     features = {
         "src/test/resources/Features"
     },
@@ -22,4 +21,6 @@ import cucumber.api.junit.Cucumber;
         "@API_Test"
     }
 		)
-public class CukeRunner {}
+public class CukeRunner {
+	
+}
